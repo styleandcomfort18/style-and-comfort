@@ -20,6 +20,7 @@ const config: Config = {
           white: "#FFFFFF",
           text: "#182620",      // near-black text with a green tint
           whatsapp: "#25D366",
+          lime: "#8DC63F",
         },
       },
       fontFamily: {

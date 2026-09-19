@@ -92,3 +92,18 @@ export const CATEGORY_LABELS: Record<string, string> = {
   socks: "Socks",
   bedsheets: "Bedsheets",
 };
+
+// Sub-categories shown as filter tabs on each category page.
+// Matches the original design exactly. Products are tagged with a `sub`
+// value (e.g. "Jeans & Pants") which should be one of the strings below
+// for that category, so the tabs actually filter correctly.
+export const CATEGORY_SUBS: Record<string, string[]> = {
+  men: ["Shirts", "T-Shirts & Tops", "Jeans & Pants", "Jerseys", "Accessories"],
+  women: ["Dresses", "Tops", "Bottoms", "Activewear", "Accessories"],
+  kids: ["School Uniforms", "School Boots", "Casual Wear", "Footwear"],
+  footwear: ["Sneakers", "Slippers", "Boots", "Sandals"],
+  bags: ["Handbags", "Backpacks", "Wallets"],
+  socks: ["Ankle Socks", "Crew Socks", "Novelty Socks"],
+  bedsheets: ["Single", "Double", "Queen", "King"],
+  electronics: ["Phone Accessories", "Earphones & Speakers", "Chargers & Cables", "Gadgets"],
+};

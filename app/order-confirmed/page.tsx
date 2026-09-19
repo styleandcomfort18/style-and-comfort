@@ -1,22 +1,62 @@
+"use client";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-export default function OrderConfirmedPage() {
+const WHATSAPP_NUMBER = "5926211289";
+const fmt = (n: number) => `$${n.toLocaleString()} GYD`;
+
+function ConfirmationContent() {
+  const params = useSearchParams();
+  const id = params.get("id") || "";
+  const total = Number(params.get("total") || 0);
+  const phone = params.get("phone") || "";
+  const zone = params.get("zone") || "";
+
+  const shortId = id ? id.slice(0, 8) : "";
+  const waText = encodeURIComponent(
+    `Hi Style & Comfort! I just placed order ${shortId} for ${fmt(total)}. Confirming details.`
+  );
+
   return (
-    <div className="max-w-md mx-auto px-4 py-24 text-center">
-      <div className="text-5xl mb-4">✓</div>
+    <div className="fade-page max-w-xl mx-auto px-4 py-16 text-center">
+      <div
+        className="w-[70px] h-[70px] rounded-full bg-brand-lime flex items-center justify-center mx-auto mb-5"
+        style={{ animation: "popIn 0.4s ease" }}
+      >
+        <span className="text-3xl text-brand-dark">✓</span>
+      </div>
       <h1 className="font-display font-bold text-2xl text-brand-dark mb-2">
         Order placed!
       </h1>
-      <p className="text-brand-text/70 mb-8">
-        Thank you for your order. We'll be in touch shortly to confirm
-        delivery details.
+      <p className="text-brand-text/70">
+        Order <b className="font-mono">{shortId}</b> for <b>{fmt(total)}</b> is confirmed.
+        We'll reach out at {phone} to arrange delivery to {zone}.
       </p>
-      <Link
-        href="/"
-        className="inline-block bg-brand-primary text-white font-semibold px-6 py-3 rounded-card"
-      >
-        Continue shopping
-      </Link>
+      <div className="flex gap-3 justify-center mt-6 flex-wrap">
+        <a
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`}
+          target="_blank"
+          rel="noreferrer"
+          className="btn-primary bg-brand-whatsapp text-white font-bold px-6 py-3 rounded-full flex items-center gap-2"
+        >
+          💬 Message us on WhatsApp
+        </a>
+        <Link
+          href="/"
+          className="btn-primary bg-brand-primary text-white font-bold px-6 py-3 rounded-full"
+        >
+          Continue shopping
+        </Link>
+      </div>
     </div>
+  );
+}
+
+export default function OrderConfirmedPage() {
+  return (
+    <Suspense fallback={<div className="py-16 text-center text-brand-text/60">Loading...</div>}>
+      <ConfirmationContent />
+    </Suspense>
   );
 }
