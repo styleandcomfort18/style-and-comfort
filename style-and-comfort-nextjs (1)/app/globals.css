@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  background: #F6FAF6;
+  color: #182620;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+a { text-decoration: none; }
+
+.prod-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.prod-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(15, 81, 50, 0.15);
+}
+.prod-img {
+  transition: transform 0.4s ease;
+}
+.prod-card:hover .prod-img {
+  transform: scale(1.06);
+}
+.btn-primary {
+  transition: all 0.2s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(27, 122, 67, 0.35);
+}
