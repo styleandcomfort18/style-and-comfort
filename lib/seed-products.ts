@@ -98,9 +98,9 @@ export const CATEGORY_LABELS: Record<string, string> = {
 // value (e.g. "Jeans & Pants") which should be one of the strings below
 // for that category, so the tabs actually filter correctly.
 export const CATEGORY_SUBS: Record<string, string[]> = {
-  men: ["Shirts", "T-Shirts & Tops", "Jeans & Pants", "Jerseys", "Accessories"],
+  men: ["Shirts", "T-Shirts & Tops", "Jeans & Pants", "Jerseys", "Accessories", "Belts", "Face Masks", "Shorts"],
   women: ["Dresses", "Tops", "Bottoms", "Activewear", "Accessories"],
-  kids: ["School Uniforms", "School Boots", "Casual Wear", "Footwear"],
+  kids: ["School Uniforms", "School Boots", "Casual Wear", "Footwear", "Tops", "Basic Tees"],
   footwear: ["Sneakers", "Slippers", "Boots", "Sandals"],
   bags: ["Handbags", "Backpacks", "Wallets"],
   socks: ["Ankle Socks", "Crew Socks", "Novelty Socks"],
