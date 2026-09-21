@@ -4,6 +4,12 @@ import HeroCarousel from "@/components/HeroCarousel";
 import { CATEGORY_LABELS } from "@/lib/seed-products";
 import { getAllProducts } from "@/lib/data";
 
+// Always fetch fresh data from the database — never freeze this page's
+// product list at build time. Without this, newly added products
+// wouldn't show up until the next deployment.
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function HomePage() {
   let products: any[] = [];
   try {
